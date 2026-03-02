@@ -41,7 +41,7 @@
             flex-wrap: wrap;
             gap: 20px;
             justify-content: center;
-            max-width: 1600px;
+            max-width: 1800px;
             margin: 0 auto;
         }
 
@@ -52,8 +52,8 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             flex: 1;
-            min-width: 500px;
-            max-width: 700px;
+            min-width: 600px;
+            max-width: 850px;
         }
 
         .panel-title {
@@ -69,6 +69,10 @@
             display: block;
             width: 100%;
             height: auto;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: -webkit-crisp-edges;
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
         }
 
         .controls {
@@ -131,6 +135,10 @@
 
         button.tertiary {
             background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        button.success {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
         }
 
         button.active-link {
@@ -198,27 +206,29 @@
 
         .color-scheme {
             display: flex;
-            gap: 5px;
+            gap: 8px;
             flex-wrap: wrap;
             justify-content: center;
         }
 
         .color-btn {
-            width: 30px;
-            height: 30px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            border: 2px solid transparent;
+            border: 3px solid transparent;
             cursor: pointer;
-            transition: transform 0.2s, border-color 0.2s;
+            transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
         }
 
         .color-btn:hover {
-            transform: scale(1.2);
+            transform: scale(1.15);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
         }
 
         .color-btn.active {
             border-color: #fff;
             transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
         }
 
         .iterations-display {
@@ -228,8 +238,8 @@
 
         .coordinates {
             font-family: monospace;
-            font-size: 0.8rem;
-            color: #888;
+            font-size: 0.85rem;
+            color: #aaa;
             text-align: center;
             margin-top: 5px;
         }
@@ -245,7 +255,7 @@
             opacity: 1;
         }
 
-        @media (max-width: 1100px) {
+        @media (max-width: 1300px) {
             .container {
                 flex-direction: column;
                 align-items: center;
@@ -254,7 +264,7 @@
             .fractal-panel {
                 min-width: auto;
                 width: 100%;
-                max-width: 600px;
+                max-width: 700px;
             }
 
             .connection-section {
@@ -273,7 +283,7 @@
             border-radius: 15px;
             padding: 20px;
             margin: 20px auto;
-            max-width: 1400px;
+            max-width: 1600px;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
@@ -304,10 +314,117 @@
             font-size: 0.9rem;
             color: #888;
         }
+
+        .quality-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        /* Share Section Styles */
+        .share-section {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 1200px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .share-section h2 {
+            text-align: center;
+            color: #ffd700;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .share-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .share-url-container {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .share-url-input {
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid #444;
+            background: #1a1a2e;
+            color: #4ecdc4;
+            font-family: monospace;
+            font-size: 0.85rem;
+            min-width: 300px;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .share-url-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+        }
+
+        .share-info {
+            text-align: center;
+            color: #888;
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-weight: bold;
+            box-shadow: 0 5px 20px rgba(17, 153, 142, 0.4);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        .param-preview {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 10px 15px;
+            margin-top: 10px;
+            font-family: monospace;
+            font-size: 0.75rem;
+            color: #aaa;
+            max-width: 600px;
+            overflow-x: auto;
+        }
+
+        .param-preview span {
+            color: #4ecdc4;
+        }
     </style>
 </head>
 <body>
-    <h1>🌀 Explorador de Fractais</h1>
+    <h1>🌀 Explorador de Fractais <span class="quality-badge">HD</span></h1>
     <p class="subtitle">Inspirado no 3Blue1Brown - Clique no Mandelbrot para ver o Julia correspondente!</p>
     
     <div class="container">
@@ -315,15 +432,15 @@
         <div class="fractal-panel">
             <div class="panel-title">Conjunto de Mandelbrot</div>
             <div class="canvas-wrapper">
-                <canvas id="mandelbrotCanvas" width="600" height="600"></canvas>
+                <canvas id="mandelbrotCanvas" width="800" height="800"></canvas>
             </div>
             <div class="coordinates" id="mandelbrotCoords">c = 0 + 0i</div>
             <div class="sync-indicator" id="mandelbrotSync">🔗 Sincronizado com Julia</div>
             <div class="controls">
                 <div class="control-group">
                     <label>Máx Iterações</label>
-                    <input type="range" id="mandelbrotIterations" min="50" max="500" value="100">
-                    <span class="iterations-display" id="mandelbrotIterDisplay">100</span>
+                    <input type="range" id="mandelbrotIterations" min="50" max="1000" value="150">
+                    <span class="iterations-display" id="mandelbrotIterDisplay">150</span>
                 </div>
                 <button onclick="resetMandelbrot()">Reset View</button>
                 <button class="secondary" onclick="zoomOutMandelbrot()">Zoom Out</button>
@@ -366,7 +483,7 @@
         <div class="fractal-panel">
             <div class="panel-title">Conjunto de Julia</div>
             <div class="canvas-wrapper">
-                <canvas id="juliaCanvas" width="600" height="600"></canvas>
+                <canvas id="juliaCanvas" width="800" height="800"></canvas>
             </div>
             <div class="coordinates" id="juliaCoords">c = -0.7269 + 0.1889i</div>
             <div class="sync-indicator" id="juliaSync">🔗 Sincronizado com Mandelbrot</div>
@@ -381,8 +498,8 @@
                 </div>
                 <div class="control-group">
                     <label>Máx Iterações</label>
-                    <input type="range" id="juliaIterations" min="50" max="500" value="100">
-                    <span class="iterations-display" id="juliaIterDisplay">100</span>
+                    <input type="range" id="juliaIterations" min="50" max="1000" value="150">
+                    <span class="iterations-display" id="juliaIterDisplay">150</span>
                 </div>
                 <button onclick="updateJulia()">Atualizar</button>
                 <button class="secondary" onclick="resetJulia()">Reset View</button>
@@ -400,12 +517,12 @@
             <div class="control-section">
                 <h3>Esquema de Cores</h3>
                 <div class="color-scheme">
-                    <div class="color-btn active" style="background: linear-gradient(90deg, #000, #ff0000, #ffff00, #ffffff);" onclick="setColorScheme('fire')" title="Fire"></div>
-                    <div class="color-btn" style="background: linear-gradient(90deg, #000033, #0000ff, #00ffff, #ffffff);" onclick="setColorScheme('ocean')" title="Ocean"></div>
-                    <div class="color-btn" style="background: linear-gradient(90deg, #000, #ff00ff, #00ffff, #ffff00);" onclick="setColorScheme('psychedelic')" title="Psychedelic"></div>
-                    <div class="color-btn" style="background: linear-gradient(90deg, #000, #4b0082, #00ff00, #ffff00);" onclick="setColorScheme('forest')" title="Forest"></div>
-                    <div class="color-btn" style="background: linear-gradient(90deg, #000, #ff69b4, #ffd700, #ffffff);" onclick="setColorScheme('sunset')" title="Sunset"></div>
-                    <div class="color-btn" style="background: linear-gradient(90deg, #000, #808080, #c0c0c0, #ffffff);" onclick="setColorScheme('grayscale')" title="Grayscale"></div>
+                    <div class="color-btn active" style="background: linear-gradient(135deg, #000, #ff3300, #ff9900, #ffffcc);" onclick="setColorScheme('fire')" title="Fire"></div>
+                    <div class="color-btn" style="background: linear-gradient(135deg, #000033, #0066cc, #00ccff, #ccffff);" onclick="setColorScheme('ocean')" title="Ocean - Novo!"></div>
+                    <div class="color-btn" style="background: linear-gradient(135deg, #000, #ff00ff, #00ffff, #ffff00);" onclick="setColorScheme('psychedelic')" title="Psychedelic"></div>
+                    <div class="color-btn" style="background: linear-gradient(135deg, #001a00, #006600, #33cc33, #ccff66, #ffffcc);" onclick="setColorScheme('forest')" title="Forest - Novo!"></div>
+                    <div class="color-btn" style="background: linear-gradient(135deg, #2d1b4e, #8b008b, #ff1493, #ffd700, #ffffcc);" onclick="setColorScheme('sunset')" title="Sunset"></div>
+                    <div class="color-btn" style="background: linear-gradient(135deg, #000, #404040, #808080, #c0c0c0, #ffffff);" onclick="setColorScheme('grayscale')" title="Grayscale"></div>
                 </div>
             </div>
 
@@ -419,10 +536,31 @@
         </div>
     </div>
 
+    <!-- Share Section -->
+    <div class="share-section">
+        <h2>🔗 Compartilhar Configuração</h2>
+        <div class="share-controls">
+            <div class="share-url-container">
+                <input type="text" class="share-url-input" id="shareUrl" readonly placeholder="Clique em 'Gerar Link' para criar uma URL compartilhável">
+                <button class="success" onclick="generateShareUrl()">🔗 Gerar Link</button>
+                <button class="tertiary" onclick="copyShareUrl()">📋 Copiar</button>
+            </div>
+        </div>
+        <div class="share-info">
+            💡 Este link contém todos os parâmetros: posição, zoom, cores e configurações do Julia. Compartilhe com amigos!
+        </div>
+        <div class="param-preview" id="paramPreview" style="display: none;">
+            <!-- Parameters will be shown here -->
+        </div>
+    </div>
+
     <div style="margin-top: 20px; text-align: center; color: #666; font-size: 0.8rem;">
         <p>💡 Dica: Ative "Link Views" para explorar os dois fractais simultaneamente com zoom e pan sincronizados!</p>
-        <p>Os pontos no Mandelbrot correspondem a diferentes parâmetros c no conjunto de Julia.</p>
+        <p>Resolução HD (800x800) com suavização de cores e gradientes melhorados.</p>
     </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">Link copiado para a área de transferência!</div>
 
     <script>
         // Canvas setup
@@ -449,43 +587,259 @@
         let isDraggingJulia = false;
         let dragStartX, dragStartY;
 
-        // Get color based on iterations
-        function getColor(iterations, maxIterations) {
+        // Load parameters from URL on page load
+        function loadParamsFromUrl() {
+            const params = new URLSearchParams(window.location.search);
+            
+            // Mandelbrot view
+            if (params.has('mxMin')) mandelbrotView.xMin = parseFloat(params.get('mxMin'));
+            if (params.has('mxMax')) mandelbrotView.xMax = parseFloat(params.get('mxMax'));
+            if (params.has('myMin')) mandelbrotView.yMin = parseFloat(params.get('myMin'));
+            if (params.has('myMax')) mandelbrotView.yMax = parseFloat(params.get('myMax'));
+            
+            // Julia view
+            if (params.has('jxMin')) juliaView.xMin = parseFloat(params.get('jxMin'));
+            if (params.has('jxMax')) juliaView.xMax = parseFloat(params.get('jxMax'));
+            if (params.has('jyMin')) juliaView.yMin = parseFloat(params.get('jyMin'));
+            if (params.has('jyMax')) juliaView.yMax = parseFloat(params.get('jyMax'));
+            
+            // Julia C parameter
+            if (params.has('cre')) {
+                juliaC.re = parseFloat(params.get('cre'));
+                document.getElementById('juliaRe').value = juliaC.re.toFixed(4);
+            }
+            if (params.has('cim')) {
+                juliaC.im = parseFloat(params.get('cim'));
+                document.getElementById('juliaIm').value = juliaC.im.toFixed(4);
+            }
+            
+            // Color scheme
+            if (params.has('color')) {
+                colorScheme = params.get('color');
+                document.querySelectorAll('.color-btn').forEach(btn => btn.classList.remove('active'));
+                // Find and activate the correct color button
+                const colorButtons = document.querySelectorAll('.color-btn');
+                const colorMap = ['fire', 'ocean', 'psychedelic', 'forest', 'sunset', 'grayscale'];
+                const index = colorMap.indexOf(colorScheme);
+                if (index >= 0 && index < colorButtons.length) {
+                    colorButtons[index].classList.add('active');
+                }
+            }
+            
+            // Iterations
+            if (params.has('iter')) {
+                const iter = parseInt(params.get('iter'));
+                document.getElementById('mandelbrotIterations').value = iter;
+                document.getElementById('juliaIterations').value = iter;
+                document.getElementById('mandelbrotIterDisplay').textContent = iter;
+                document.getElementById('juliaIterDisplay').textContent = iter;
+            }
+            
+            // Link states
+            if (params.has('linkView')) {
+                linkViews = params.get('linkView') === '1';
+                document.getElementById('linkViews').checked = linkViews;
+            }
+            if (params.has('linkIter')) {
+                linkIterations = params.get('linkIter') === '1';
+                document.getElementById('linkIterations').checked = linkIterations;
+            }
+            if (params.has('linkColor')) {
+                linkColors = params.get('linkColor') === '1';
+                document.getElementById('linkColors').checked = linkColors;
+            }
+            
+            updateSyncIndicators();
+        }
+
+        // Generate shareable URL
+        function generateShareUrl() {
+            const params = new URLSearchParams();
+            
+            // Mandelbrot view
+            params.set('mxMin', mandelbrotView.xMin.toFixed(10));
+            params.set('mxMax', mandelbrotView.xMax.toFixed(10));
+            params.set('myMin', mandelbrotView.yMin.toFixed(10));
+            params.set('myMax', mandelbrotView.yMax.toFixed(10));
+            
+            // Julia view
+            params.set('jxMin', juliaView.xMin.toFixed(10));
+            params.set('jxMax', juliaView.xMax.toFixed(10));
+            params.set('jyMin', juliaView.yMin.toFixed(10));
+            params.set('jyMax', juliaView.yMax.toFixed(10));
+            
+            // Julia C
+            params.set('cre', juliaC.re.toFixed(10));
+            params.set('cim', juliaC.im.toFixed(10));
+            
+            // Other settings
+            params.set('color', colorScheme);
+            params.set('iter', document.getElementById('mandelbrotIterations').value);
+            params.set('linkView', linkViews ? '1' : '0');
+            params.set('linkIter', linkIterations ? '1' : '0');
+            params.set('linkColor', linkColors ? '1' : '0');
+            
+            const url = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
+            document.getElementById('shareUrl').value = url;
+            
+            // Update browser URL without reloading
+            window.history.replaceState({}, '', `?${params.toString()}`);
+            
+            // Show parameter preview
+            const preview = document.getElementById('paramPreview');
+            preview.style.display = 'block';
+            preview.innerHTML = `
+                <strong>Mandelbrot:</strong> x[${mandelbrotView.xMin.toFixed(4)}, ${mandelbrotView.xMax.toFixed(4)}] y[${mandelbrotView.yMin.toFixed(4)}, ${mandelbrotView.yMax.toFixed(4)}] | 
+                <strong>Julia:</strong> c=<span>${juliaC.re.toFixed(4)}</span>${juliaC.im >= 0 ? '+' : ''}<span>${juliaC.im.toFixed(4)}</span>i | 
+                <strong>Cor:</strong> <span>${colorScheme}</span> | 
+                <strong>Iter:</strong> <span>${document.getElementById('mandelbrotIterations').value}</span>
+            `;
+            
+            showToast('Link gerado! Copie e compartilhe.');
+        }
+
+        // Copy URL to clipboard
+        function copyShareUrl() {
+            const urlInput = document.getElementById('shareUrl');
+            if (!urlInput.value) {
+                generateShareUrl();
+            }
+            urlInput.select();
+            urlInput.setSelectionRange(0, 99999); // For mobile
+            navigator.clipboard.writeText(urlInput.value).then(() => {
+                showToast('Link copiado para a área de transferência!');
+            }).catch(() => {
+                document.execCommand('copy');
+                showToast('Link copiado!');
+            });
+        }
+
+        // Show toast notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Smooth color interpolation using continuous iteration count
+        function smoothColor(iterations, maxIterations, x, y) {
             if (iterations === maxIterations) return [0, 0, 0];
             
-            const t = iterations / maxIterations;
+            // Smooth iteration count for anti-aliased colors
+            const zn = Math.sqrt(x * x + y * y);
+            const nu = Math.log(Math.log(zn) / Math.log(2)) / Math.log(2);
+            const smoothIter = iterations + 1 - nu;
+            
+            const t = smoothIter / maxIterations;
             
             switch(colorScheme) {
                 case 'fire':
                     return [
-                        Math.min(255, Math.floor(255 * Math.pow(t, 0.5))),
-                        Math.min(255, Math.floor(255 * Math.pow(t, 2))),
-                        Math.min(255, Math.floor(128 * Math.pow(t, 3)))
+                        Math.min(255, Math.floor(255 * Math.pow(t, 0.4))),
+                        Math.min(255, Math.floor(255 * Math.pow(t, 1.5))),
+                        Math.min(255, Math.floor(100 * Math.pow(t, 3)))
                     ];
                 case 'ocean':
-                    return [
-                        Math.min(255, Math.floor(50 * t)),
-                        Math.min(255, Math.floor(100 + 155 * t)),
-                        Math.min(255, Math.floor(200 + 55 * t))
-                    ];
+                    // Deep ocean → electric blue → cyan → white
+                    if (t < 0.25) {
+                        const localT = t / 0.25;
+                        return [
+                            Math.floor(10 * localT),
+                            Math.floor(30 * localT),
+                            Math.floor(50 + 100 * localT)
+                        ];
+                    } else if (t < 0.5) {
+                        const localT = (t - 0.25) / 0.25;
+                        return [
+                            Math.floor(10 + 20 * localT),
+                            Math.floor(30 + 100 * localT),
+                            Math.floor(150 + 80 * localT)
+                        ];
+                    } else if (t < 0.75) {
+                        const localT = (t - 0.5) / 0.25;
+                        return [
+                            Math.floor(30 + 100 * localT),
+                            Math.floor(130 + 125 * localT),
+                            Math.floor(230 + 25 * localT)
+                        ];
+                    } else {
+                        const localT = (t - 0.75) / 0.25;
+                        return [
+                            Math.floor(130 + 125 * localT),
+                            Math.floor(255),
+                            Math.floor(255)
+                        ];
+                    }
                 case 'psychedelic':
                     return [
-                        Math.min(255, Math.floor(128 + 127 * Math.sin(t * Math.PI * 3))),
-                        Math.min(255, Math.floor(128 + 127 * Math.sin(t * Math.PI * 5))),
-                        Math.min(255, Math.floor(128 + 127 * Math.sin(t * Math.PI * 7)))
+                        Math.min(255, Math.floor(128 + 127 * Math.sin(t * Math.PI * 4))),
+                        Math.min(255, Math.floor(128 + 127 * Math.sin(t * Math.PI * 6))),
+                        Math.min(255, Math.floor(128 + 127 * Math.sin(t * Math.PI * 8)))
                     ];
                 case 'forest':
-                    return [
-                        Math.min(255, Math.floor(50 * Math.pow(t, 2))),
-                        Math.min(255, Math.floor(100 + 100 * t)),
-                        Math.min(255, Math.floor(30 * t))
-                    ];
+                    // Deep forest → emerald → lime → gold → cream
+                    if (t < 0.2) {
+                        const localT = t / 0.2;
+                        return [
+                            0,
+                            Math.floor(40 * localT),
+                            Math.floor(20 * localT)
+                        ];
+                    } else if (t < 0.4) {
+                        const localT = (t - 0.2) / 0.2;
+                        return [
+                            Math.floor(50 * localT),
+                            Math.floor(40 + 80 * localT),
+                            Math.floor(20 + 60 * localT)
+                        ];
+                    } else if (t < 0.6) {
+                        const localT = (t - 0.4) / 0.2;
+                        return [
+                            Math.floor(50 + 50 * localT),
+                            Math.floor(120 + 90 * localT),
+                            Math.floor(80 + 60 * localT)
+                        ];
+                    } else if (t < 0.8) {
+                        const localT = (t - 0.6) / 0.2;
+                        return [
+                            Math.floor(100 + 80 * localT),
+                            Math.floor(210 + 45 * localT),
+                            Math.floor(140 + 115 * localT)
+                        ];
+                    } else {
+                        const localT = (t - 0.8) / 0.2;
+                        return [
+                            Math.floor(180 + 75 * localT),
+                            Math.floor(255),
+                            Math.floor(255 * (0.4 + 0.6 * localT))
+                        ];
+                    }
                 case 'sunset':
-                    return [
-                        Math.min(255, Math.floor(255 * Math.pow(t, 0.3))),
-                        Math.min(255, Math.floor(100 + 100 * t)),
-                        Math.min(255, Math.floor(150 + 105 * t))
-                    ];
+                    if (t < 0.3) {
+                        const localT = t / 0.3;
+                        return [
+                            Math.floor(45 + 94 * localT),
+                            Math.floor(27 + 46 * localT),
+                            Math.floor(78 + 78 * localT)
+                        ];
+                    } else if (t < 0.6) {
+                        const localT = (t - 0.3) / 0.3;
+                        return [
+                            Math.floor(139 + 116 * localT),
+                            Math.floor(73 + 127 * localT),
+                            Math.floor(156 - 96 * localT)
+                        ];
+                    } else {
+                        const localT = (t - 0.6) / 0.4;
+                        return [
+                            Math.floor(255),
+                            Math.floor(200 + 55 * localT),
+                            Math.floor(60 + 195 * localT)
+                        ];
+                    }
                 case 'grayscale':
                     const gray = Math.floor(255 * t);
                     return [gray, gray, gray];
@@ -494,7 +848,7 @@
             }
         }
 
-        // Mandelbrot iteration
+        // Mandelbrot iteration with smooth coloring
         function mandelbrotIterations(cx, cy, maxIterations) {
             let x = 0, y = 0;
             let iterations = 0;
@@ -506,10 +860,10 @@
                 iterations++;
             }
             
-            return iterations;
+            return { iterations, x, y };
         }
 
-        // Julia iteration
+        // Julia iteration with smooth coloring
         function juliaIterations(zx, zy, cx, cy, maxIterations) {
             let x = zx, y = zy;
             let iterations = 0;
@@ -521,7 +875,7 @@
                 iterations++;
             }
             
-            return iterations;
+            return { iterations, x, y };
         }
 
         // Draw Mandelbrot
@@ -540,8 +894,8 @@
                     const cx = mandelbrotView.xMin + (px / width) * xRange;
                     const cy = mandelbrotView.yMin + ((height - py) / height) * yRange;
                     
-                    const iterations = mandelbrotIterations(cx, cy, maxIterations);
-                    const [r, g, b] = getColor(iterations, maxIterations);
+                    const result = mandelbrotIterations(cx, cy, maxIterations);
+                    const [r, g, b] = smoothColor(result.iterations, maxIterations, result.x, result.y);
                     
                     const idx = (py * width + px) * 4;
                     data[idx] = r;
@@ -570,8 +924,8 @@
                     const zx = juliaView.xMin + (px / width) * xRange;
                     const zy = juliaView.yMin + ((height - py) / height) * yRange;
                     
-                    const iterations = juliaIterations(zx, zy, juliaC.re, juliaC.im, maxIterations);
-                    const [r, g, b] = getColor(iterations, maxIterations);
+                    const result = juliaIterations(zx, zy, juliaC.re, juliaC.im, maxIterations);
+                    const [r, g, b] = smoothColor(result.iterations, maxIterations, result.x, result.y);
                     
                     const idx = (py * width + px) * 4;
                     data[idx] = r;
@@ -583,7 +937,6 @@
             
             jCtx.putImageData(imageData, 0, 0);
             
-            // Update coordinate display
             document.getElementById('juliaCoords').textContent = 
                 `c = ${juliaC.re.toFixed(4)} ${juliaC.im >= 0 ? '+' : ''}${juliaC.im.toFixed(4)}i`;
         }
@@ -615,15 +968,12 @@
             }
         }
 
-        // Sync views (make Julia match Mandelbrot or vice versa)
         function syncViews() {
-            // Copy Mandelbrot view to Julia
             const xCenter = (mandelbrotView.xMin + mandelbrotView.xMax) / 2;
             const yCenter = (mandelbrotView.yMin + mandelbrotView.yMax) / 2;
             const xRange = mandelbrotView.xMax - mandelbrotView.xMin;
             const yRange = mandelbrotView.yMax - mandelbrotView.yMin;
             
-            // Scale to Julia's aspect ratio if needed
             juliaView.xMin = xCenter - xRange / 2;
             juliaView.xMax = xCenter + xRange / 2;
             juliaView.yMin = yCenter - yRange / 2;
@@ -632,7 +982,6 @@
             drawJulia();
         }
 
-        // Set color scheme
         function setColorScheme(scheme) {
             colorScheme = scheme;
             document.querySelectorAll('.color-btn').forEach(btn => btn.classList.remove('active'));
@@ -641,7 +990,6 @@
             drawJulia();
         }
 
-        // Reset views
         function resetMandelbrot() {
             mandelbrotView = { xMin: -2.5, xMax: 1, yMin: -1.75, yMax: 1.75 };
             drawMandelbrot();
@@ -661,11 +1009,17 @@
             juliaC = { re: -0.7269, im: 0.1889 };
             document.getElementById('juliaRe').value = -0.7269;
             document.getElementById('juliaIm').value = 0.1889;
-            document.getElementById('mandelbrotIterations').value = 100;
-            document.getElementById('juliaIterations').value = 100;
-            document.getElementById('mandelbrotIterDisplay').textContent = 100;
-            document.getElementById('juliaIterDisplay').textContent = 100;
+            document.getElementById('mandelbrotIterations').value = 150;
+            document.getElementById('juliaIterations').value = 150;
+            document.getElementById('mandelbrotIterDisplay').textContent = 150;
+            document.getElementById('juliaIterDisplay').textContent = 150;
+            colorScheme = 'fire';
+            document.querySelectorAll('.color-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.color-btn')[0].classList.add('active');
             drawJulia();
+            window.history.replaceState({}, '', window.location.pathname);
+            document.getElementById('shareUrl').value = '';
+            document.getElementById('paramPreview').style.display = 'none';
         }
 
         function zoomOutMandelbrot() {
@@ -691,7 +1045,6 @@
         }
 
         function randomJulia() {
-            // Generate random c in interesting range
             juliaC.re = (Math.random() - 0.5) * 2;
             juliaC.im = (Math.random() - 0.5) * 2;
             document.getElementById('juliaRe').value = juliaC.re.toFixed(4);
@@ -699,14 +1052,12 @@
             drawJulia();
         }
 
-        // Update Julia parameters
         function updateJulia() {
             juliaC.re = parseFloat(document.getElementById('juliaRe').value);
             juliaC.im = parseFloat(document.getElementById('juliaIm').value);
             drawJulia();
         }
 
-        // Screen to complex coordinate conversion
         function screenToComplex(canvas, view, x, y) {
             const rect = canvas.getBoundingClientRect();
             const px = x - rect.left;
@@ -715,7 +1066,6 @@
             const xRange = view.xMax - view.xMin;
             const yRange = view.yMax - view.yMin;
             
-            // Calculate actual pixel position considering canvas display size
             const scaleX = canvas.width / rect.width;
             const scaleY = canvas.height / rect.height;
             
@@ -728,7 +1078,6 @@
             return { x: cx, y: cy };
         }
 
-        // Apply zoom to a view
         function applyZoom(view, coord, zoomFactor) {
             const xRange = (view.xMax - view.xMin) * zoomFactor;
             const yRange = (view.yMax - view.yMin) * zoomFactor;
@@ -742,7 +1091,6 @@
             view.yMax = coord.y + (1 - py) * yRange;
         }
 
-        // Apply pan to a view
         function applyPan(view, dxRatio, dyRatio) {
             const xRange = view.xMax - view.xMin;
             const yRange = view.yMax - view.yMin;
@@ -753,13 +1101,12 @@
             view.yMax += dyRatio * yRange;
         }
 
-        // Mandelbrot interactions
+        // Event listeners
         mandelbrotCanvas.addEventListener('click', (e) => {
             if (isDraggingMandelbrot) return;
             
             const coord = screenToComplex(mandelbrotCanvas, mandelbrotView, e.clientX, e.clientY);
             
-            // Update Julia c parameter
             juliaC.re = coord.x;
             juliaC.im = coord.y;
             
@@ -821,7 +1168,6 @@
             }
         });
 
-        // Julia interactions
         juliaCanvas.addEventListener('mousedown', (e) => {
             isDraggingJulia = false;
             dragStartX = e.clientX;
@@ -871,7 +1217,6 @@
             }
         });
 
-        // Sliders update
         document.getElementById('mandelbrotIterations').addEventListener('input', (e) => {
             document.getElementById('mandelbrotIterDisplay').textContent = e.target.value;
             drawMandelbrot();
@@ -892,7 +1237,8 @@
             }
         });
 
-        // Initial draw
+        // Load params and draw
+        loadParamsFromUrl();
         drawMandelbrot();
         drawJulia();
     </script>
