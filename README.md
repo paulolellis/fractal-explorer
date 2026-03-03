@@ -1,6 +1,6 @@
 # Explorador de Fractais Mandelbrot & Julia
 
-Um explorador interativo de fractais inspirado no 3Blue1Brown.
+Um explorador interativo de fractais inspirado no [3Blue1Brown](https://www.youtube.com/watch?v=LqbZpur38nw).
 
 ## 🎨 Funcionalidades
 
@@ -28,6 +28,10 @@ Clique em \"Gerar Link\" para criar uma URL única com sua configuração atual.
 - Algoritmo de suavização de cores (continuous iteration count)
 - Resolução HD (800x800)
 
----
+## 🎥 Inspiração
 
-Inspirado no vídeo do 3Blue1Brown sobre Dinâmica Holomórfica.
+Este projeto foi inspirado no vídeo do 3Blue1Brown sobre **Dinâmica Holomórfica**:
+
+[![Dinâmica Holomórfica](https://img.youtube.com/vi/LqbZpur38nw/0.jpg)](https://www.youtube.com/watch?v=LqbZpur38nw)
+
+[▶️ Assista no YouTube](https://www.youtube.com/watch?v=LqbZpur38nw)
