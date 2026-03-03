@@ -100,3 +100,7 @@ This project was inspired by 3Blue1Brown's video on **Holomorphic Dynamics**:
 <p align="center">
   Feito com 💜 • Made with 💜
 </p>
+
+<p align="center">
+  <a href="https://lellis.pt">🌐 lellis.pt</a>
+</p>
